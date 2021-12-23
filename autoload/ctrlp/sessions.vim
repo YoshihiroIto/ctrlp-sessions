@@ -5,20 +5,14 @@ let g:loaded_ctrlp_sessions = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-let s:sessions_var = {
+let g:ctrlp_ext_vars = get(g:, 'ctrlp_ext_vars', []) + [{
       \   'init':   'ctrlp#sessions#init()',
       \   'accept': 'ctrlp#sessions#accept',
       \   'lname':  'sessions',
       \   'sname':  'sessions',
       \   'type':   'path',
       \   'nolim':  1
-      \ }
-
-if exists('g:ctrlp_ext_vars') && !empty(g:ctrlp_ext_vars)
-  let g:ctrlp_ext_vars = add(g:ctrlp_ext_vars, s:sessions_var)
-else
-  let g:ctrlp_ext_vars = [s:sessions_var]
-endif
+      \ }]
 
 let s:id = g:ctrlp_builtins + len(g:ctrlp_ext_vars)
 
