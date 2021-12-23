@@ -35,7 +35,7 @@ endfunction
 function! ctrlp#sessions#accept(mode, str) abort
   call ctrlp#exit()
 
-  execute('source ' . s:make_session_path(a:str))
+  execute 'source' s:make_session_path(a:str)
 endfunction
 
 function! ctrlp#sessions#save_session(...) abort
@@ -57,7 +57,7 @@ function! ctrlp#sessions#save_session(...) abort
     call mkdir(l:dir, 'p')
   endif
 
-  execute('mksession! ' . s:make_session_path(l:name))
+  execute 'mksession!' s:make_session_path(l:name)
 endfunction
 
 function! s:sessions_dir()
