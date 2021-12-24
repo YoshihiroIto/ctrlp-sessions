@@ -39,11 +39,7 @@ function! ctrlp#sessions#accept(mode, str) abort
 endfunction
 
 function! ctrlp#sessions#save_session(...) abort
-  if a:0 >= 1
-    let l:name = a:1
-  else
-    let l:name = input('Session name: ')
-  endif
+  let l:name = a:0 >= 1 ? a:1 : input('Session name: ')
 
   redraw
   echo ''
